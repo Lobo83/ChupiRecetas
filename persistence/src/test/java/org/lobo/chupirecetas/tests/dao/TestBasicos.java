@@ -1,3 +1,5 @@
+package org.lobo.chupirecetas.tests.dao;
+
 
 
 
@@ -69,3 +71,4 @@ public class TestBasicos {
 	
 	
 }
+

@@ -1,4 +1,4 @@
-package org.lobo.chupirecetas.tests.dao;
+package org.lobo.chupirecetas.tests.dao.junit;
 
 
 

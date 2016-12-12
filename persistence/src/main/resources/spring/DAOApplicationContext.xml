@@ -15,7 +15,7 @@
   http://www.springframework.org/schema/data/jpa
   http://www.springframework.org/schema/data/jpa/spring-jpa.xsd">
 	
-	<jpa:repositories base-package="org.lobo.chupirecetas.persistence.dao" />
+	<jpa:repositories base-package="org.lobo.chupirecetas.persistence.repository" />
     <bean id="jpaGenericDAO" class="org.lobo.chupirecetas.persistence.dao.JPAGenericDAO"/>
 	
 		

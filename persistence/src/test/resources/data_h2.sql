@@ -1,2 +1,1 @@
-insert into cliente (id, nombre, apellido1, apellido2)values(1,'pollo','loco','chungo');
-insert into direccion(id, calle, bloque, puerta, id_cliente)values(1,'calle del boniato','3','a',1);
+insert into chupi_recetas.TIPO_INGREDIENTE(FECHA_CREACION,FECHA_ACTUALIZACION,USUARIO_CREACION,USUARIO_ACTUALIZACION,ID, NOMBRE)VALUES(timestamp'2014-12-03 20:08:08',timestamp'2014-12-03 20:08:08','lobo','lobo',1,'verdura');

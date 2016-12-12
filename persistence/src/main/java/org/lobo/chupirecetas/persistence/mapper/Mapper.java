@@ -13,8 +13,8 @@ import org.lobo.chupirecetas.persistence.mapper.annotation.MappingId;
 
 public class Mapper<T, O> {
 
-	Class<T> vo;
-	Class<O> entidad;
+	private Class<T> vo;
+	private Class<O> entidad;
 	public Mapper(Class<T> vo, Class<O> entidad){
 		this.vo=vo;
 		this.entidad=entidad;

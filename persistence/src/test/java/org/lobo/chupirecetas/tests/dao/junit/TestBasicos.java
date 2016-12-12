@@ -48,7 +48,7 @@ public class TestBasicos {
 		
 	}
 	
-	@SuppressWarnings("unchecked")
+	
 	@Test
 	public void testJpaGenericDao(){
 		Cliente cliente = new Cliente();
@@ -57,7 +57,7 @@ public class TestBasicos {
 
 		try {
 			
-			result=(List<Cliente>) jpaGenericDAO.executeQueryByCriteria(cliente);
+			result= jpaGenericDAO.executeQueryByCriteria(cliente);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

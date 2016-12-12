@@ -44,7 +44,7 @@ public class JPAGenericDAO{
    * @return
    * @throws Exception
    */
-	 public <T> List<T> executeQueryByCriteria(final Object entity) throws Exception{
+	 public <T> List<T> executeQueryByCriteria(final T entity) throws Exception{
 		StringBuffer query = new StringBuffer();
 		//Se construye la query JPQL
 		//Paso 1: Inicializar el primer statement
@@ -68,7 +68,7 @@ public class JPAGenericDAO{
  * @param parameters
  * @return
  */
-	private <T> List<T> executeQueryByCriteria(String query, Object entidad,Parameter... parameters){
+	private <T> List<T> executeQueryByCriteria(String query, T entidad,Parameter... parameters){
 		 
 		 @SuppressWarnings("unchecked")
 		TypedQuery<T> typedQuery = (TypedQuery<T>) this.entityManager.createQuery(query, entidad.getClass());

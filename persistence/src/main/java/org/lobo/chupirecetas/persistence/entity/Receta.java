@@ -8,6 +8,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.lobo.chupirecetas.persistence.mapper.annotation.MappingId;
+
 @Entity
 @Table(name="PLANIFICACION",schema="chupi_recetas")
 public class Receta extends AuditableEntity {
@@ -15,15 +17,19 @@ public class Receta extends AuditableEntity {
 	@Id
 	@Column(name="ID", nullable=false)
 	@GeneratedValue
+	@MappingId(id="idReceta")
 	private Long id;
 	
 	@Column(name="NOMBRE")
+	@MappingId(id="nombreReceta")
 	private String nombre;
 	
 	@Column(name="IMAGEN")
+	@MappingId(id="imagenReceta")
 	private String imagen;
 	
 	@Column(name="CALORIAS", precision=5, scale=2)
+	@MappingId(id="caloriasReceta")
 	private BigDecimal calorias;
 
 	public Long getId() {

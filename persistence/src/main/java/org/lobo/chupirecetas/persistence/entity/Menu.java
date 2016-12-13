@@ -6,6 +6,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.lobo.chupirecetas.persistence.mapper.annotation.MappingId;
+
 @Entity
 @Table(name="MENU",schema="chupi_recetas")
 public class Menu extends AuditableEntity {
@@ -13,9 +15,11 @@ public class Menu extends AuditableEntity {
 	@Id
 	@Column(name="ID", nullable=false)
 	@GeneratedValue
+	@MappingId(id="idMenu")
 	private Long id;
 	
 	@Column(name="DESCRIPCION", nullable=false)
+	@MappingId(id="descripcionMenu")
 	private String descripcion;
 
 	public Long getId() {

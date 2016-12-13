@@ -7,7 +7,7 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
- * 
+ * Repositorio para consultas de la entidad Ingrediente
  * @author Lobo
  *
  */

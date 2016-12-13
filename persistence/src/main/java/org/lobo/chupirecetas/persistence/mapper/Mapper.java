@@ -9,6 +9,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
+import org.lobo.chupirecetas.persistence.mapper.annotation.InspectInside;
 import org.lobo.chupirecetas.persistence.mapper.annotation.MappingId;
 
 public class Mapper<T, O> {
@@ -57,6 +58,8 @@ public class Mapper<T, O> {
 					result.put(f.getAnnotation(MappingId.class).id(), pd.getWriteMethod());
 				}
 				
+			}else if(f.isAnnotationPresent(InspectInside.class)){
+				result.putAll(findGetterAndSetters(f.getClass(),getGetter));
 			}
 		}
 		return result;

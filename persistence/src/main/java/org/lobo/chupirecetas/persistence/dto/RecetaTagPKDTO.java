@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 import org.lobo.chupirecetas.persistence.mapper.annotation.MappingId;
 
-public class RecetaTagPK implements Serializable{
+public class RecetaTagPKDTO implements Serializable{
 
 	private static final long serialVersionUID = -200846588395436068L;
 	@MappingId(id="idReceta")
@@ -44,7 +44,7 @@ public class RecetaTagPK implements Serializable{
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		RecetaTagPK other = (RecetaTagPK) obj;
+		RecetaTagPKDTO other = (RecetaTagPKDTO) obj;
 		if (recetaId == null) {
 			if (other.recetaId != null)
 				return false;

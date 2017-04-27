@@ -3,13 +3,13 @@ package org.lobo.chupirecetas.persistence.dto;
 public class RecetaTagDTO extends AuditableDTO{
 
 
-	private RecetaTagPK id;
+	private RecetaTagPKDTO id;
 
-	public RecetaTagPK getId() {
+	public RecetaTagPKDTO getId() {
 		return id;
 	}
 
-	public void setId(RecetaTagPK id) {
+	public void setId(RecetaTagPKDTO id) {
 		this.id = id;
 	}
 

@@ -21,7 +21,7 @@ public class Mapper<T, O> {
 		this.entidad=entidad;
 	}
 	
-	public O mapVO2Entidad(T vo) throws InstantiationException, IllegalAccessException, IntrospectionException, IllegalArgumentException, InvocationTargetException{
+	public O mapDTO2Entidad(T dto) throws InstantiationException, IllegalAccessException, IntrospectionException, IllegalArgumentException, InvocationTargetException{
 		O resultado=(O) this.entidad.newInstance();
 		Map<String,Method> getters = findGetterAndSetters(this.dto,Boolean.TRUE);
 		Map<String,Method> setters =findGetterAndSetters(this.entidad,Boolean.FALSE);
@@ -29,12 +29,12 @@ public class Mapper<T, O> {
 		for(String id:mappingIds){
 			Method getter = getters.get(id);
 			Method setter = setters.get(id);
-			setter.invoke(resultado, getter.invoke(vo));
+			setter.invoke(resultado, getter.invoke(dto));
 		}
 		return resultado;
 	}
 	
-	public T mapEntidad2VO( O entidad) throws InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, IntrospectionException{
+	public T mapEntidad2DTO( O entidad) throws InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, IntrospectionException{
 		T resultado=(T) this.dto.newInstance();
 		Map<String,Method> getters = findGetterAndSetters(this.entidad,Boolean.TRUE);
 		Map<String,Method> setters =findGetterAndSetters(this.dto,Boolean.FALSE);

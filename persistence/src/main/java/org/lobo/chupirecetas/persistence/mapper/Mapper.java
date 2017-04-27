@@ -14,16 +14,16 @@ import org.lobo.chupirecetas.persistence.mapper.annotation.MappingId;
 
 public class Mapper<T, O> {
 
-	private Class<T> vo;
+	private Class<T> dto;
 	private Class<O> entidad;
-	public Mapper(Class<T> vo, Class<O> entidad){
-		this.vo=vo;
+	public Mapper(Class<T> dto, Class<O> entidad){
+		this.dto=dto;
 		this.entidad=entidad;
 	}
 	
 	public O mapVO2Entidad(T vo) throws InstantiationException, IllegalAccessException, IntrospectionException, IllegalArgumentException, InvocationTargetException{
 		O resultado=(O) this.entidad.newInstance();
-		Map<String,Method> getters = findGetterAndSetters(this.vo,Boolean.TRUE);
+		Map<String,Method> getters = findGetterAndSetters(this.dto,Boolean.TRUE);
 		Map<String,Method> setters =findGetterAndSetters(this.entidad,Boolean.FALSE);
 		Set<String> mappingIds = getters.keySet();//getter y setter generan el mismo keyset
 		for(String id:mappingIds){
@@ -35,9 +35,9 @@ public class Mapper<T, O> {
 	}
 	
 	public T mapEntidad2VO( O entidad) throws InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, IntrospectionException{
-		T resultado=(T) this.vo.newInstance();
+		T resultado=(T) this.dto.newInstance();
 		Map<String,Method> getters = findGetterAndSetters(this.entidad,Boolean.TRUE);
-		Map<String,Method> setters =findGetterAndSetters(this.vo,Boolean.FALSE);
+		Map<String,Method> setters =findGetterAndSetters(this.dto,Boolean.FALSE);
 		Set<String> mappingIds = getters.keySet();//getter y setter generan el mismo keyset
 		for(String id:mappingIds){
 			Method getter = getters.get(id);

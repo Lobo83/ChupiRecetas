@@ -1,21 +1,14 @@
-package org.lobo.chupirecetas.persistence.entity;
+package org.lobo.chupirecetas.persistence.dto;
 
 import java.io.Serializable;
 
-import javax.persistence.Column;
-import javax.persistence.Embeddable;
-
 import org.lobo.chupirecetas.persistence.mapper.annotation.MappingId;
 
-@Embeddable
 public class RecetaTagPK implements Serializable{
 
 	private static final long serialVersionUID = -200846588395436068L;
-
-	@Column(name="RECETA_ID", nullable=false)
 	@MappingId(id="idReceta")
 	private Long recetaId;
-	@Column(name="TAG_ID", nullable=false)
 	@MappingId(id="idTag")
 	private Long tagId;
 

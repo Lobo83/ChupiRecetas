@@ -1,24 +1,16 @@
-package org.lobo.chupirecetas.persistence.entity;
+package org.lobo.chupirecetas.persistence.dto;
 
 import java.io.Serializable;
 
-import javax.persistence.Column;
-import javax.persistence.Embeddable;
-
 import org.lobo.chupirecetas.persistence.mapper.annotation.MappingId;
 
-@Embeddable
-public class RecetaMenuPosicionPK implements Serializable {
+public class RecetaMenuPosicionPKDTO implements Serializable {
 
 	private static final long serialVersionUID = 2700023664026818572L;
-	
-	@Column(name="RECETA_ID", nullable=false)
 	@MappingId(id="idReceta")
 	private Long recetaId;
-	@Column(name="MENU_ID", nullable=false)
 	@MappingId(id="idMenu")
 	private Long menuId;
-	@Column(name="POSICION_ID", nullable=false)
 	@MappingId(id="idPosicion")
 	private Long posicionId;
 	
@@ -87,7 +79,7 @@ public class RecetaMenuPosicionPK implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		RecetaMenuPosicionPK other = (RecetaMenuPosicionPK) obj;
+		RecetaMenuPosicionPKDTO other = (RecetaMenuPosicionPKDTO) obj;
 		if (menuId == null) {
 			if (other.menuId != null)
 				return false;

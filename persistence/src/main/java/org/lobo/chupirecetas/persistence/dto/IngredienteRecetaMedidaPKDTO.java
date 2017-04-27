@@ -1,21 +1,11 @@
-package org.lobo.chupirecetas.persistence.entity;
+package org.lobo.chupirecetas.persistence.dto;
 
-import java.io.Serializable;
-
-import javax.persistence.Column;
-import javax.persistence.Embeddable;
-
-@Embeddable
-public class IngredienteRecetaMedidaPK implements Serializable{
+public class IngredienteRecetaMedidaPKDTO {
 
 	
-	private static final long serialVersionUID = -7219461669857204600L;
 
-	@Column(name="INGREDIENTE_ID", nullable=false)
 	private Long ingredienteId;
-	@Column(name="RECETA_ID", nullable=false)
 	private Long recetaId;
-	@Column(name="MEDIDA_ID", nullable=false)
 	private Long medidaId;
 	public Long getIngredienteId() {
 		return ingredienteId;
@@ -57,7 +47,7 @@ public class IngredienteRecetaMedidaPK implements Serializable{
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		IngredienteRecetaMedidaPK other = (IngredienteRecetaMedidaPK) obj;
+		IngredienteRecetaMedidaPKDTO other = (IngredienteRecetaMedidaPKDTO) obj;
 		if (ingredienteId == null) {
 			if (other.ingredienteId != null)
 				return false;

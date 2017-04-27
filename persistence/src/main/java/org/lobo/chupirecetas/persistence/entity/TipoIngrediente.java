@@ -15,6 +15,7 @@ public class TipoIngrediente extends AuditableEntity {
 	@Id
 	@Column(name="ID", nullable=false)
 	@GeneratedValue
+	@MappingId(id="idTipoIngrediente")
 	private Long id;
 	
 	@Column(name="NOMBRE", nullable=false)

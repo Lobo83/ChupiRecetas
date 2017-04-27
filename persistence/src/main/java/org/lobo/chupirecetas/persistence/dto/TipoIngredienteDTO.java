@@ -1,26 +1,13 @@
-package org.lobo.chupirecetas.persistence.entity;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+package org.lobo.chupirecetas.persistence.dto;
 
 import org.lobo.chupirecetas.persistence.mapper.annotation.MappingId;
 
-@Entity
-@Table(name="TAG",schema="chupi_recetas")
-public class Tag extends AuditableEntity {
+public class TipoIngredienteDTO extends AuditableDTO{
 
-
-	@Id
-	@Column(name="ID", nullable=false)
-	@GeneratedValue
-	@MappingId(id="idTag")
+	@MappingId(id="idTipoIngrediente")
 	private Long id;
 	
-	@Column(name="NOMBRE", nullable=false)
-	@MappingId(id="nombreTag")
+	@MappingId(id="nombreTipoIngrediente")
 	private String nombre;
 
 	public Long getId() {
@@ -40,11 +27,6 @@ public class Tag extends AuditableEntity {
 	}
 
 	@Override
-	public String toString() {
-		return "Tag [id=" + id + ", nombre=" + nombre + "]";
-	}
-
-	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = super.hashCode();
@@ -61,7 +43,7 @@ public class Tag extends AuditableEntity {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Tag other = (Tag) obj;
+		TipoIngredienteDTO other = (TipoIngredienteDTO) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;
@@ -73,6 +55,11 @@ public class Tag extends AuditableEntity {
 		} else if (!nombre.equals(other.nombre))
 			return false;
 		return true;
+	}
+
+	@Override
+	public String toString() {
+		return "TipoIngredienteDTO [id=" + id + ", nombre=" + nombre + "]";
 	}
 	
 }

@@ -1,25 +1,11 @@
-package org.lobo.chupirecetas.persistence.entity;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+package org.lobo.chupirecetas.persistence.dto;
 
 import org.lobo.chupirecetas.persistence.mapper.annotation.MappingId;
 
-@Entity
-@Table(name="TAG",schema="chupi_recetas")
-public class Tag extends AuditableEntity {
+public class TagDTO extends AuditableDTO{
 
-
-	@Id
-	@Column(name="ID", nullable=false)
-	@GeneratedValue
 	@MappingId(id="idTag")
 	private Long id;
-	
-	@Column(name="NOMBRE", nullable=false)
 	@MappingId(id="nombreTag")
 	private String nombre;
 
@@ -41,7 +27,7 @@ public class Tag extends AuditableEntity {
 
 	@Override
 	public String toString() {
-		return "Tag [id=" + id + ", nombre=" + nombre + "]";
+		return "TagDTO [id=" + id + ", nombre=" + nombre + "]";
 	}
 
 	@Override
@@ -61,7 +47,7 @@ public class Tag extends AuditableEntity {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Tag other = (Tag) obj;
+		TagDTO other = (TagDTO) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;

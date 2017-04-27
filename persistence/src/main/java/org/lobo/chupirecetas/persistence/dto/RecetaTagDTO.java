@@ -1,14 +1,8 @@
-package org.lobo.chupirecetas.persistence.entity;
+package org.lobo.chupirecetas.persistence.dto;
 
-import javax.persistence.EmbeddedId;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+public class RecetaTagDTO extends AuditableDTO{
 
-@Entity
-@Table(name="RECETA_TAG",schema="chupi_recetas")
-public class RecetaTag extends AuditableEntity {
 
-	@EmbeddedId
 	private RecetaTagPK id;
 
 	public RecetaTagPK getId() {
@@ -17,11 +11,6 @@ public class RecetaTag extends AuditableEntity {
 
 	public void setId(RecetaTagPK id) {
 		this.id = id;
-	}
-
-	@Override
-	public String toString() {
-		return "RecetaTag [id=" + id + "]";
 	}
 
 	@Override
@@ -40,7 +29,7 @@ public class RecetaTag extends AuditableEntity {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		RecetaTag other = (RecetaTag) obj;
+		RecetaTagDTO other = (RecetaTagDTO) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;
@@ -48,6 +37,11 @@ public class RecetaTag extends AuditableEntity {
 			return false;
 		return true;
 	}
-	
-	
+
+
+	@Override
+	public String toString() {
+		return "RecetaTagDTO [id=" + id + "]";
+	}
+
 }

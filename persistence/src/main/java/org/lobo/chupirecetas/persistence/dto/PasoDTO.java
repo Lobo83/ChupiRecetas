@@ -1,14 +1,23 @@
-package org.lobo.chupirecetas.persistence.vo;
+package org.lobo.chupirecetas.persistence.dto;
 
 import org.lobo.chupirecetas.persistence.mapper.annotation.MappingId;
 
-public class PosicionPlatoVO {
-	
-	@MappingId(id="idPosicionPlato")
+public class PasoDTO extends AuditableDTO{
+	@MappingId(id="idPaso")
 	private Long id;
 	
-	@MappingId(id="descripcionPosicionPlato")
+	private Long recetaId;
+	
+	@MappingId(id="descripcionPaso")
 	private String descripcion;
+	
+	public String getDescripcion() {
+		return descripcion;
+	}
+
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
+	}
 
 	public Long getId() {
 		return id;
@@ -18,25 +27,26 @@ public class PosicionPlatoVO {
 		this.id = id;
 	}
 
-	public String getDescripcion() {
-		return descripcion;
+	public Long getRecetaId() {
+		return recetaId;
 	}
 
-	public void setDescripcion(String descripcion) {
-		this.descripcion = descripcion;
+	public void setRecetaId(Long recetaId) {
+		this.recetaId = recetaId;
 	}
 
 	@Override
 	public String toString() {
-		return "PosicionPlatoVO [id=" + id + ", descripcion=" + descripcion + "]";
+		return "PasoDTO [id=" + id + ", recetaId=" + recetaId + ", descripcion=" + descripcion + "]";
 	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
-		int result = 1;
+		int result = super.hashCode();
 		result = prime * result + ((descripcion == null) ? 0 : descripcion.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		result = prime * result + ((recetaId == null) ? 0 : recetaId.hashCode());
 		return result;
 	}
 
@@ -44,11 +54,11 @@ public class PosicionPlatoVO {
 	public boolean equals(Object obj) {
 		if (this == obj)
 			return true;
-		if (obj == null)
+		if (!super.equals(obj))
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		PosicionPlatoVO other = (PosicionPlatoVO) obj;
+		PasoDTO other = (PasoDTO) obj;
 		if (descripcion == null) {
 			if (other.descripcion != null)
 				return false;
@@ -59,8 +69,14 @@ public class PosicionPlatoVO {
 				return false;
 		} else if (!id.equals(other.id))
 			return false;
+		if (recetaId == null) {
+			if (other.recetaId != null)
+				return false;
+		} else if (!recetaId.equals(other.recetaId))
+			return false;
 		return true;
 	}
+
 	
-	
+
 }
